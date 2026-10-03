@@ -32,7 +32,20 @@ def put_price(S, K, T, r, sigma, q=0.0):
 
     return put
 
-print(put_price(
+
+def vega(S, K, T, r, sigma, q=0.0):
+    d1, _ = d1_d2(S, K, T, r, sigma, q)
+
+    vega_value = (
+        S
+        * np.exp(-q * T)
+        * norm.pdf(d1)
+        * np.sqrt(T)
+    )
+
+    return vega_value
+
+print(vega(
     S=200,
     K=200,
     T=0.5,
