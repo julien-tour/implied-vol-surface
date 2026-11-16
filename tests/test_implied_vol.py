@@ -27,3 +27,28 @@ def test_implied_vol_put():
     )
 
     assert abs(sigma - 0.25) < 1e-10
+
+def test_invalid_call_price():
+    sigma = implied_vol_call(
+        market_price=1.0,
+        S=200,
+        K=200,
+        T=0.5,
+        r=0.03,
+        q=0.0,
+        initial_sigma=0.20
+    )
+
+    assert sigma is None
+def test_invalid_put_price():
+    sigma = implied_vol_put(
+        market_price=250.0,
+        S=200,
+        K=200,
+        T=0.5,
+        r=0.03,
+        q=0.0,
+        initial_sigma=0.20
+    )
+
+    assert sigma is None
