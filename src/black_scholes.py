@@ -45,11 +45,3 @@ def vega(S, K, T, r, sigma, q=0.0):
 
     return vega_value
 
-print(vega(
-    S=200,
-    K=200,
-    T=0.5,
-    r=0.03,
-    sigma=0.25,
-    q=0.0
-))
