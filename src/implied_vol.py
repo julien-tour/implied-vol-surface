@@ -101,3 +101,43 @@ def implied_vol_put(
             return None
 
     return None
+
+def implied_vol(
+    option_type,
+    market_price,
+    S,
+    K,
+    T,
+    r,
+    q=0.0,
+    initial_sigma=0.20,
+    tol=1e-6,
+    max_iter=100
+):
+    if option_type == "call":
+        return implied_vol_call(
+            market_price,
+            S,
+            K,
+            T,
+            r,
+            q,
+            initial_sigma,
+            tol,
+            max_iter
+        )
+
+    if option_type == "put":
+        return implied_vol_put(
+            market_price,
+            S,
+            K,
+            T,
+            r,
+            q,
+            initial_sigma,
+            tol,
+            max_iter
+        )
+
+    return None
